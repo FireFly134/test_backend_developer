@@ -1,0 +1,16 @@
+<ul>
+    {% for menu in menus %}
+        <li>
+            {% if menu.title == menu_name %}
+                {{ menu_name }}
+                {% for item in menu_items %}
+                    <ul>
+                        <li>{{ item.title }}</li>
+                    </ul>
+                {% endfor %}
+            {% else %}
+              <a href="{% url 'get_menu' menu_name=menu.title %}">{{ menu.title }}</a>
+            {% endif %}
+      </li>
+    {% endfor %}
+</ul>
